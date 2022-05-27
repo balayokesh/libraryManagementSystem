@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import BooksAdmin from './Routes/Admin/BooksAdmin';
-import PeopleAdmin from './Routes/Admin/PeopleAdmin';
+import MembersAdmin from './Routes/Admin/MembersAdmin';
 
 export default function Admin() {
 
@@ -18,11 +18,11 @@ export default function Admin() {
             <br />
 
             <button onClick={() => setCurrentTab('books')}>Books</button>
-            <button onClick={() => setCurrentTab('people')}>People</button>
+            <button onClick={() => setCurrentTab('people')}>Members</button>
 
             <div>
                 {
-                    currentTab === 'books' ? <BooksAdmin /> : <PeopleAdmin />
+                    currentTab === 'books' ? <BooksAdmin /> : <MembersAdmin />
                 }
             </div>
         </div>
