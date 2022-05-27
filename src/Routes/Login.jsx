@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Login () {
 
     const handleSubmit = (e) => {
@@ -15,6 +17,9 @@ export default function Login () {
     return (
         <div>
             <form onSubmit={handleSubmit}>
+                <Link to='/'>
+                    <img src='https://ik.imagekit.io/balayokesh/LibraryManagerLogo_XkvQqnBkh.png' className='logo' alt='Logo' />
+                </Link>
                 <h1>Login</h1>
                 <input type='email' placeholder='Email' id='email' required autoFocus />
                 <br />
