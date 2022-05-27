@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import Login from './Routes/Login';
 import Admin from './Admin';
-import AdminLogin from './Routes/AdminLogin';
+import AdminLogin from './Routes/Admin/AdminLogin';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
