@@ -19,3 +19,8 @@ body {
 	padding: 5px;
 	margin: 5px;
 }
+
+details > summary {
+	list-style: none;
+	user-select: none;
+}

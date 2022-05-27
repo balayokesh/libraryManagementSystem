@@ -9,28 +9,28 @@ export default function BookAdmin() {
             id: 1,
             title: 'Oliver Twist',
             author: 'Charles Dickens',
-            subject: 'The battles of good versus evil, with the evil continually trying to corrupt and exploit the good',
+            subject: 'English Literature',
             publishedOn: 1837
         },
         {
             id: 2,
             title: 'Oliver Twist',
             author: 'Charles Dickens',
-            subject: 'The battles of good versus evil, with the evil continually trying to corrupt and exploit the good',
+            subject: 'Computer programming',
             publishedOn: 1835
         },
         {
             id: 3,
             title: 'Oliver Twist',
             author: 'Charles Dickens',
-            subject: 'The battles of good versus evil, with the evil continually trying to corrupt and exploit the good',
+            subject: 'History',
             publishedOn: 1827
         },
         {
             id: 4,
             title: 'Oliver Twist',
             author: 'Charles Dickens',
-            subject: 'The battles of good versus evil, with the evil continually trying to corrupt and exploit the good',
+            subject: 'Economics',
             publishedOn: 1857
         }
     ];
@@ -66,7 +66,10 @@ export default function BookAdmin() {
     return (
         <div>
             <h2>Books Admin</h2>
-
+            <button>
+                <i className='bi bi-plus-circle-fill' title='Edit'></i>
+                New Book
+            </button>
             <div>
                 <input type='text' placeholder='search' id='query' onKeyUp={handleSearch} />
                 <select id='filter' onChange={handleSearch}>
@@ -93,6 +96,13 @@ export default function BookAdmin() {
                         <big>{data.title}</big> - <small>{data.author}</small>
                         <p>{data.subject}</p>
                         Published on: <small>{data.publishedOn}</small>
+                        <details>
+                            <summary title='menu'>...</summary>
+                            <div className='border'>
+                                    <i className="bi bi-pencil-fill border" title='Edit'></i>
+                                    <i className="bi bi-trash-fill border" title='Delete'></i>
+                            </div>
+                        </details>
                     </div>
                 ))
             }
