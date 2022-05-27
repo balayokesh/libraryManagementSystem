@@ -4,8 +4,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
-import Admin from './Admin';
 import Login from './Routes/Login';
+import Admin from './Admin';
+import AdminLogin from './Routes/AdminLogin';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,8 +14,9 @@ root.render(
 		<BrowserRouter>
 			<Routes>
 				<Route exact path='/' element={<App />} />
-				<Route exact path='/admin' element={<Admin />} />
 				<Route exact path='/login' element={<Login />} />
+				<Route exact path='/admin' element={<Admin />} />
+				<Route exact path='/admin/login' element={<AdminLogin />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>
