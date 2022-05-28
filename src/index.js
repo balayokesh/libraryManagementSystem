@@ -8,6 +8,7 @@ import Login from './Routes/Login';
 import Admin from './Admin';
 import AdminLogin from './Routes/Admin/AdminLogin';
 import AddBook from './Routes/Admin/AddBook';
+import EditBook from './Routes/Admin/EditBook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
 				<Route exact path='/admin' element={<Admin />} />
 				<Route exact path='/admin/login' element={<AdminLogin />} />
 				<Route exact path='/admin/addbook' element={<AddBook />} />
+				<Route exact path='/admin/editbook' element={<EditBook />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>

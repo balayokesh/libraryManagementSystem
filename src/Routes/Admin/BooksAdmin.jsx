@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function BookAdmin() {
 
@@ -99,7 +100,9 @@ export default function BookAdmin() {
                         <details>
                             <summary title='menu'>...</summary>
                             <div className='border'>
-                                    <i className="bi bi-pencil-fill border" title='Edit'></i>
+                                    <Link to='/admin/editbook' state={{ title: data.title, author: data.author, subject: data.subject, publishedOn: data.publishedOn }}>
+                                        <i className="bi bi-pencil-fill border" title='Edit'></i>
+                                    </Link>
                                     <i className="bi bi-trash-fill border" title='Delete'></i>
                             </div>
                         </details>
