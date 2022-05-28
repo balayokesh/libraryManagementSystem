@@ -66,7 +66,7 @@ export default function BookAdmin() {
     return (
         <div>
             <h2>Books Admin</h2>
-            <button>
+            <button onClick={() => window.location.href = '/admin/addbook'}>
                 <i className='bi bi-plus-circle-fill' title='Edit'></i>
                 New Book
             </button>
