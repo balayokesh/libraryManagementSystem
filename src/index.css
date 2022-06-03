@@ -7,17 +7,17 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.root {
+	height: 100vh;
+}
 .logo {
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 	border-radius: 50%;
 }
-
-.border {
-	border: 1px solid #000;
-	border-radius: 10px;
-	padding: 5px;
-	margin: 5px;
+.cardhover:hover {
+	background: linear-gradient(black, rgb(43, 40, 40));
+	font-weight: bolder;
 }
 
 details > summary {
