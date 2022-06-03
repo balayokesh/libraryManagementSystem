@@ -6,7 +6,7 @@ export default function App() {
 			<div className='d-flex justify-content-between p-3 bg-dark text-white'>
 				<div className='d-flex'>
 					<img src='https://ik.imagekit.io/balayokesh/LibraryManagerLogo_XkvQqnBkh.png' alt='Logo' className='logo mx-1' />
-					<h1 className='align-self-center mx-2'>Library Manager</h1>	
+					<h2 className='align-self-center mx-2'>Library Manager</h2>	
 				</div>
 				<div className='align-self-center'>
 					<Link to='/member' className='btn mx-2 p-3 border text-white'>Member login</Link>
