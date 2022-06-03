@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function MemberCheckOut() {
 
@@ -65,6 +66,9 @@ export default function MemberCheckOut() {
 
     return (
         <div>
+            <Link to='/member'>
+                <i className='bi bi-arrow-left-circle-fill'></i>
+            </Link>
             <h2>Checkout new Books</h2>
             <div>
                 <input type='text' placeholder='search' id='query' onKeyUp={handleSearch} />
