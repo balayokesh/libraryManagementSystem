@@ -26,6 +26,8 @@ export default function Login () {
                 <input type='password' placeholder='Password' id='password' required/>
                 <br />
                 <input type='submit' value='Login' />
+                <br />
+                Don't have an account? <Link to='/signup'>Sign up</Link>
             </form>
         </div>
     );
