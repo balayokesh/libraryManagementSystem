@@ -100,7 +100,7 @@ export default function MembersAdmin () {
                         <details>
                             <summary title='menu'>...</summary>
                             <div className='border'>
-                                    <Link to='/admin/editmember' state={{ email: data.email, name: data.name, education: data.education }}>
+                                    <Link to='/admin/editmember' state={{ email: data.email, name: data.name, password: data.password, education: data.education }}>
                                         <i className="bi bi-pencil-fill border" title='Edit'></i>
                                     </Link>
                                     <i className="bi bi-trash-fill border" title='Delete'></i>

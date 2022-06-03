@@ -11,6 +11,7 @@ import AdminLogin from './Routes/Admin/AdminLogin';
 import AddBook from './Routes/Admin/AddBook';
 import AddMember from './Routes/Admin/AddMember';
 import EditBook from './Routes/Admin/EditBook';
+import EditMember from './Routes/Admin/EditMember';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +26,7 @@ root.render(
 				<Route exact path='/admin/addbook' element={<AddBook />} />
 				<Route exact path='/admin/addmember' element={<AddMember />} />
 				<Route exact path='/admin/editbook' element={<EditBook />} />
+				<Route exact path='/admin/editmember' element={<EditMember />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>
