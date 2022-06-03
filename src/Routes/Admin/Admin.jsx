@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import BooksAdmin from './Routes/Admin/BooksAdmin';
-import MembersAdmin from './Routes/Admin/MembersAdmin';
+import BooksAdmin from './BooksAdmin';
+import MembersAdmin from './MembersAdmin';
 
 export default function Admin() {
 
