@@ -28,7 +28,6 @@ root.render(
 				<Route exact path='/member/checkout' element={<MemberCheckOut />} />
 
 				<Route exact path='/admin' element={<Admin />} />
-				<Route exact path='/admin/login' element={<AdminLogin />} />
 				<Route exact path='/admin/addbook' element={<AddBook />} />
 				<Route exact path='/admin/addmember' element={<AddMember />} />
 				<Route exact path='/admin/editbook' element={<EditBook />} />
