@@ -6,25 +6,43 @@ import MembersAdmin from './MembersAdmin';
 
 export default function Admin() {
 
+    const [isLoggedIn, setIsLoggedIn] = useState(0);
     const [currentTab, setCurrentTab] = useState('books');
 
     return (
         <div>
-            <Link to='/'>
-                <img src='https://ik.imagekit.io/balayokesh/LibraryManagerLogo_XkvQqnBkh.png' alt='Logo' className='logo' />
-            </Link>
-            <h1>Hello, Admin!</h1>
-            <Link to='/admin/login'>Login</Link>
+            <div className='d-flex justify-content-between p-3 bg-dark text-white'>
+				<div className='d-flex'>
+                    <Link to='/'>
+					    <img src='https://ik.imagekit.io/balayokesh/LibraryManagerLogo_XkvQqnBkh.png' alt='Logo' className='logo mx-1' />
+                    </Link>
+					<h2 className='align-self-center mx-2'>Library Manager</h2>	
+				</div>
+				<div className='align-self-center'>
+					{
+                    isLoggedIn === 0 ? <Link to='/admin/login' className='border btn mx-2 p-3 text-white'>Login</Link> : <button className='border btn mx-2 p-3 text-white' onClick={() => setIsLoggedIn(0)}>Logout</button>
+                    }
+				</div>
+			</div> 
+            
+            
+
             <br />
+    
+            {
+                isLoggedIn === 0 
+                ?
+                <h1 className='text-center'>Login to continue</h1>
+                :
+                <div>
+                    <button onClick={() => setCurrentTab('books')}>Books</button>
+                    <button onClick={() => setCurrentTab('people')}>Members</button>
 
-            <button onClick={() => setCurrentTab('books')}>Books</button>
-            <button onClick={() => setCurrentTab('people')}>Members</button>
-
-            <div>
-                {
-                    currentTab === 'books' ? <BooksAdmin /> : <MembersAdmin />
-                }
-            </div>
+                    <div>
+                        currentTab === 'books' ? <BooksAdmin /> : <MembersAdmin />
+                    </div>
+                </div>
+            }
         </div>
     )
 }

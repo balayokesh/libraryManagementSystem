@@ -12,7 +12,7 @@ export default function App() {
 					<Link to='/member' className='btn mx-2 p-3 border text-white'>Member login</Link>
 					<Link to='/admin' className='btn mx-2 p-3 text-white'>Admin login</Link>
 				</div>
-			</div>
+			</div> 
 
 			<div className='border rounded container my-3 p-3 bg-light'>
 				<h3 className='my-3 text-center'>Features ✔</h3>
