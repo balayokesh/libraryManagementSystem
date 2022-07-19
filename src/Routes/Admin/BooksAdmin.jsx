@@ -72,44 +72,86 @@ export default function BookAdmin() {
                 &nbsp;
                 New Book
             </button>
-            <div className='border rounded p-3'>
-                <input type='text' placeholder='search' id='query' onKeyUp={handleSearch} className='form-control w-50 d-inline' />
-                <select id='filter' onChange={handleSearch} className='form-control form-select w-25 d-inline'>
-                    <option value='title'>Title</option>
-                    <option value='author'>Author</option>
-                    <option value='publishedOn'>Published year</option>
-                </select>
-                <button onClick={handleSearch} className='btn btn-success d-inline'>Search</button>
-                <div className='p-3'>
+
+            {/* Start of search bar */}
+            <details>
+                <summary>
+                    <i className='bi bi-search m-3 btn btn-warning' title='Edit'>Search</i>
+                </summary>
+                <div className='border rounded p-3 text-center search-gradient'>
+                    <input type='text' placeholder='search' id='query' onKeyUp={handleSearch} className='form-control w-50 d-inline' />
+                    <select id='filter' onChange={handleSearch} className='form-control form-select w-25 d-inline'>
+                        <option value='title'>Title</option>
+                        <option value='author'>Author</option>
+                        <option value='publishedOn'>Published year</option>
+                    </select>
+                    <button onClick={handleSearch} className='btn btn-success d-inline'>Search</button>
+                    <div className='p-3 text-left'>
+                        {
+                            (resultData.length === 0) 
+                            ? 
+                            <p className='text-center'>Search results appear here</p>
+                            :
+                            resultData.map((data) => (
+                                <div key={data.id} className='card m-1'>
+                                    <div className='card-body'>
+                                        <big>{data.title}</big> - <small>{data.author}</small>
+                                        <br />
+                                        <span className='bg-primary text-white border rounded px-1'>{data.subject}</span>
+                                        &nbsp;
+                                        Published on:<small>{data.publishedOn}</small>
+                                        
+                                        <Link to='/admin/editbook' className='mx-1' state={{ title: data.title, author: data.author, subject: data.subject, publishedOn: data.publishedOn }}>
+                                            <button className='btn btn-outline-primary'>
+                                                <i className="bi bi-pencil-fill" title='Edit'>Edit</i>
+                                            </button>
+                                        </Link>
+                                        
+                                        <button className='btn btn-outline-danger mx-1'>
+                                            <i className="bi bi-trash-fill" title='Delete'>Delete</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </details>
+            {/* End of search bar */}
+            <table className='table table-striped table-bordered m-3'>
+                <thead>
+                    <tr>
+                        <th>Book title:</th>
+                        <th>Author</th>
+                        <th>Subject</th>
+                        <th>Published year</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
                     {
-                        resultData.map((data) => (
-                            <div key={data.id}>
-                                <big>{data.title}</big> - <small>{data.author}</small>
-                                <p>{data.subject}</p>
-                                Published on: <small>{data.publishedOn}</small>
-                            </div>
+                        bookData.map((data) => (
+                            <tr key={data.id}>
+                                <td>{data.title}</td>
+                                <td>{data.author}</td>
+                                <td>{data.subject}</td>
+                                <td>{data.publishedOn}</td>
+                                <td>
+                                    <Link to='/admin/editbook' state={{ title: data.title, author: data.author, subject: data.subject, publishedOn: data.publishedOn }}>
+                                        <button className='btn btn-outline-primary mx-1'>
+                                            <i className="bi bi-pencil-fill" title='Edit'>Edit</i>
+                                        </button>
+                                    </Link>
+                                    
+                                    <button className='btn btn-outline-danger mx-1'>
+                                        <i className="bi bi-trash-fill" title='Delete'>Delete</i>
+                                    </button>
+                                </td>
+                            </tr>
                         ))
                     }
-                </div>
-            </div>
-            {
-                bookData.map((data) => (
-                    <div className='border' key={data.id}>
-                        <big>{data.title}</big> - <small>{data.author}</small>
-                        <p>{data.subject}</p>
-                        Published on: <small>{data.publishedOn}</small>
-                        <details>
-                            <summary title='menu'>...</summary>
-                            <div className='border'>
-                                    <Link to='/admin/editbook' state={{ title: data.title, author: data.author, subject: data.subject, publishedOn: data.publishedOn }}>
-                                        <i className="bi bi-pencil-fill border" title='Edit'></i>
-                                    </Link>
-                                    <i className="bi bi-trash-fill border" title='Delete'></i>
-                            </div>
-                        </details>
-                    </div>
-                ))
-            }
+                    </tbody>
+            </table>
         </div>
     );
 }

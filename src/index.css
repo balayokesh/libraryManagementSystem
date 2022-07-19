@@ -24,3 +24,10 @@ details > summary {
 	list-style: none;
 	user-select: none;
 }
+
+.text-left {
+	text-align: left;
+}
+.search-gradient {
+	background: linear-gradient(90deg, lightblue, lightgrey);
+}
