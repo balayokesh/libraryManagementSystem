@@ -15,22 +15,22 @@ export default function BookAdmin() {
         },
         {
             id: 2,
-            title: 'Oliver Twist',
-            author: 'Charles Dickens',
+            title: 'Introduction to Programming in Java',
+            author: 'Dr. Tareja',
             subject: 'Computer programming',
             publishedOn: 1835
         },
         {
             id: 3,
-            title: 'Oliver Twist',
-            author: 'Charles Dickens',
+            title: 'Early India',
+            author: 'Mr. John Doe',
             subject: 'History',
             publishedOn: 1827
         },
         {
             id: 4,
-            title: 'Oliver Twist',
-            author: 'Charles Dickens',
+            title: 'Economic conditions in India',
+            author: 'Paul Samuelson',
             subject: 'Economics',
             publishedOn: 1857
         }
@@ -75,8 +75,10 @@ export default function BookAdmin() {
 
             {/* Start of search bar */}
             <details>
-                <summary>
-                    <i className='bi bi-search m-3 btn btn-warning' title='Edit'>Search</i>
+                <summary className='btn btn-success mx-3'>
+                    <i className='bi bi-search' title='Edit'></i>
+                    &nbsp;
+                    Search
                 </summary>
                 <div className='border rounded p-3 text-center search-gradient'>
                     <input type='text' placeholder='search' id='query' onKeyUp={handleSearch} className='form-control w-50 d-inline' />

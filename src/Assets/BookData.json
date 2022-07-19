@@ -1,0 +1,29 @@
+
+    {
+        id: 1,
+        title: 'Oliver Twist',
+        author: 'Charles Dickens',
+        subject: 'English Literature',
+        publishedOn: 1837
+    },
+    {
+        id: 2,
+        title: 'Introduction to Programming in Java',
+        author: 'Dr. Tareja',
+        subject: 'Computer programming',
+        publishedOn: 1835
+    },
+    {
+        id: 3,
+        title: 'Early India',
+        author: 'Mr. John Doe',
+        subject: 'History',
+        publishedOn: 1827
+    },
+    {
+        id: 4,
+        title: 'Economic conditions in India',
+        author: 'Paul Samuelson',
+        subject: 'Economics',
+        publishedOn: 1857
+    }

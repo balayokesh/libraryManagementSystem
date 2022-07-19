@@ -29,5 +29,5 @@ details > summary {
 	text-align: left;
 }
 .search-gradient {
-	background: linear-gradient(90deg, lightblue, lightgrey);
+	background: linear-gradient(90deg, rgb(152, 205, 223), rgb(167, 167, 224));
 }
