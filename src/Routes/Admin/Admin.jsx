@@ -7,7 +7,7 @@ import MembersAdmin from './MembersAdmin';
 
 export default function Admin() {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(0);
+    const [isLoggedIn, setIsLoggedIn] = useState(1);
     const [currentTab, setCurrentTab] = useState('books');
 
     if (isLoggedIn === 0) {
@@ -34,9 +34,11 @@ export default function Admin() {
 
                 <br />
     
-                <div>
-                    <button onClick={() => setCurrentTab('books')}>Books</button>
-                    <button onClick={() => setCurrentTab('people')}>Members</button>
+                <div className='container container-fluid border rounded p-3'>
+                    <div className='w-100 text-center'>
+                        <button onClick={() => setCurrentTab('books')} className='w-25 btn btn-primary'>Books</button>
+                        <button onClick={() => setCurrentTab('people')} className='w-25 btn btn-secondary'>Members</button>
+                    </div>
 
                     <div>
                         {currentTab === 'books' ? <BooksAdmin /> : <MembersAdmin />}

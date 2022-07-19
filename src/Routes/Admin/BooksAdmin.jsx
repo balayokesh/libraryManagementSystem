@@ -65,21 +65,22 @@ export default function BookAdmin() {
     }
 
     return (
-        <div>
-            <h2>Books Admin</h2>
-            <button onClick={() => window.location.href = '/admin/addbook'}>
+        <div className='bg-light p-3'>
+            <h2 className='text-center m-3'>Books Admin</h2>
+            <button onClick={() => window.location.href = '/admin/addbook'} className='btn btn-success m-3'>
                 <i className='bi bi-plus-circle-fill' title='Edit'></i>
+                &nbsp;
                 New Book
             </button>
-            <div>
-                <input type='text' placeholder='search' id='query' onKeyUp={handleSearch} />
-                <select id='filter' onChange={handleSearch}>
+            <div className='border rounded p-3'>
+                <input type='text' placeholder='search' id='query' onKeyUp={handleSearch} className='form-control w-50 d-inline' />
+                <select id='filter' onChange={handleSearch} className='form-control form-select w-25 d-inline'>
                     <option value='title'>Title</option>
                     <option value='author'>Author</option>
                     <option value='publishedOn'>Published year</option>
                 </select>
-                <button onClick={handleSearch}>Search</button>
-                <div>
+                <button onClick={handleSearch} className='btn btn-success d-inline'>Search</button>
+                <div className='p-3'>
                     {
                         resultData.map((data) => (
                             <div key={data.id}>

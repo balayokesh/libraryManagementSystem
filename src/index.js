@@ -9,7 +9,6 @@ import Login from './Routes/Member/Login';
 import SignUp from './Routes/Member/SignUp';
 import MemberCheckOut from './Routes/Member/MemberCheckOut';
 import Admin from './Routes/Admin/Admin';
-import AdminLogin from './Routes/Admin/AdminLogin';
 import AddBook from './Routes/Admin/AddBook';
 import AddMember from './Routes/Admin/AddMember';
 import EditBook from './Routes/Admin/EditBook';
