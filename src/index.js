@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import Member from './Routes/Member/Member';
-import Login from './Routes/Member/Login';
 import SignUp from './Routes/Member/SignUp';
 import MemberCheckOut from './Routes/Member/MemberCheckOut';
 import Admin from './Routes/Admin/Admin';
@@ -22,7 +21,6 @@ root.render(
 				<Route exact path='/' element={<App />} />
 				
 				<Route exact path='/member' element={<Member />} />
-				<Route exact path='/member/login' element={<Login />} />
 				<Route exact path='/signup' element={<SignUp />} />
 				<Route exact path='/member/checkout' element={<MemberCheckOut />} />
 

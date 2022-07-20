@@ -24,7 +24,7 @@ export default function SignUp() {
                     <h2 className='align-self-center mx-2'>Library Manager</h2>
                 </div>
                 <div className='align-self-center'>
-                    <Link to='/member/login' className='btn mx-2 p-3 text-white border'>Member login</Link>
+                    <Link to='/member' className='btn mx-2 p-3 text-white border'>Member login</Link>
                     <Link to='/admin' className='btn mx-2 p-3 text-white'>Admin login</Link>
                 </div>
             </div>
@@ -38,7 +38,7 @@ export default function SignUp() {
                     <br />
                     <input type='submit' value='Sign Up' className='btn btn-primary w-100' />
                     <br />
-                    Already have an account? <Link to='/member/login'>Login</Link>
+                    Already have an account? <Link to='/member'>Login</Link>
                 </form>
             </div>
         </div>

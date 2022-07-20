@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function Login () {
+export default function Login (props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -12,6 +12,7 @@ export default function Login () {
             password: password
         }
         console.log(data);
+        props.setIsLoggedIn(1);
     }
 
     return (
@@ -24,7 +25,7 @@ export default function Login () {
 					<h2 className='align-self-center mx-2'>Library Manager</h2>	
 				</div>
 				<div className='align-self-center'>
-					<Link to='/member/login' className='btn mx-2 p-3 text-white border'>Member login</Link>
+					<Link to='/member' className='btn mx-2 p-3 text-white border'>Member login</Link>
 					<Link to='/admin' className='btn mx-2 p-3 text-white'>Admin login</Link>
 				</div>
 			</div> 
