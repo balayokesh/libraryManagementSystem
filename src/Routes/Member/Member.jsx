@@ -19,35 +19,44 @@ export default function Member() {
     else {
         return (
             <div>
-                <Link to='/'>
-                    <img src='https://ik.imagekit.io/balayokesh/LibraryManagerLogo_XkvQqnBkh.png' alt='Logo' className='logo' />
-                </Link>
-                <h1>Hello, Member!</h1>
-                <button onClick={() => setIsLoggedIn(0)}>Logout</button>
-                <br />
-
-                <nav>
-                    <ul>
-                        <li><button onClick={() => setCurrentTab('home')}>Home</button></li>
-                        <li><button onClick={() => setCurrentTab('books')}>Books</button></li>
-                        <li><button onClick={() => setCurrentTab('myaccount')}>My account</button></li>
-                    </ul>
-                </nav>
-
-                <div>
-                    {
-                        currentTab === 'home'
-                            ?
-                            <Home />
-                            :
-                            currentTab === 'books'
-                                ?
-                                <Books />
-                                :
-                                <MyAccount />
-                    }
+                <div className='d-flex justify-content-between p-3 bg-dark text-white'>
+                    <div className='d-flex'>
+                        <Link to='/'>
+                            <img src='https://ik.imagekit.io/balayokesh/LibraryManagerLogo_XkvQqnBkh.png' alt='Logo' className='logo mx-1' />
+                        </Link>
+                        <h2 className='align-self-center mx-2'>Library Manager</h2>
+                    </div>
+                    <div className='align-self-center'>
+                        {
+                            isLoggedIn === 0 ? <Link to='/member' className='border btn mx-2 p-3 text-white'>Login</Link> : <button className='border btn mx-2 p-3 text-white' onClick={() => setIsLoggedIn(0)}>Logout</button>
+                        }
+                    </div>
                 </div>
 
+                <div className='d-flex justify-content-center align-content-center border bg-light'>
+                    <div className='w-25 p-3 sidebar text-center'>
+                        <img src='https://source.unsplash.com/random' className='logo' />
+                        <h3 className='text-center p-3'>Hello, Member</h3>
+
+                        <nav className='border p-3'>
+                            <ul className='list-unstyled'>
+                                <li onClick={() => setCurrentTab('books')}>Books</li>
+                                <hr />
+                                <li onClick={() => setCurrentTab('myaccount')}>My account</li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div className='w-75'>
+                        {
+                            currentTab === 'myaccount'
+                                ?
+                                <MyAccount />
+                                :
+                                <Books />
+                        }
+                    </div>
+                </div>
             </div>
         )
     }
