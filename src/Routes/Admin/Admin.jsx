@@ -7,7 +7,7 @@ import MembersAdmin from './MembersAdmin';
 
 export default function Admin() {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(1);
+    const [isLoggedIn, setIsLoggedIn] = useState(0);
     const [currentTab, setCurrentTab] = useState('books');
 
     if (isLoggedIn === 0) {
@@ -27,7 +27,7 @@ export default function Admin() {
                     </div>
                     <div className='align-self-center'>
                         {
-                        isLoggedIn === 0 ? <Link to='/admin/login' className='border btn mx-2 p-3 text-white'>Login</Link> : <button className='border btn mx-2 p-3 text-white' onClick={() => setIsLoggedIn(0)}>Logout</button>
+                        isLoggedIn === 0 ? <Link to='/admin' className='border btn mx-2 p-3 text-white'>Login</Link> : <button className='border btn mx-2 p-3 text-white' onClick={() => setIsLoggedIn(0)}>Logout</button>
                         }
                     </div>
                 </div> 

@@ -26,7 +26,7 @@ export default function AdminLogin (props) {
 				</div>
 				<div className='align-self-center'>
 					<Link to='/member/login' className='btn mx-2 p-3 text-white'>Member login</Link>
-					<Link to='/admin/login' className='btn mx-2 p-3 border text-white'>Admin login</Link>
+					<Link to='/admin' className='btn mx-2 p-3 border text-white'>Admin login</Link>
 				</div>
 			</div> 
 
