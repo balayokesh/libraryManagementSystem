@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-export default function EditBook () {
+export default function EditBook() {
 
     const location = useLocation();
     const { title, author, subject, publishedOn } = location.state;
@@ -23,24 +23,26 @@ export default function EditBook () {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div className='d-flex justify-content-center p-3 m-3'>
             <Link to='/admin'>
-                <i className='bi bi-arrow-left-circle-fill'></i>
+                <i class="bi bi-x-circle-fill"></i>
             </Link>
-            <h1>Edit book</h1>
-            <label htmlFor='title'>Book Title:</label>
-            <input type='text' placeholder='title' required id='title' defaultValue={title} />
-            <br />
-            <label htmlFor='author'>Author:</label>
-            <input type='text' placeholder='Author' required id='author' defaultValue={author} />
-            <br />
-            <label htmlFor='subject'>Subject:</label>
-            <input type='text' placeholder='Subject' required id='subject' defaultValue={subject} />
-            <br />
-            <label htmlFor='publishedOn'>Published On:</label>
-            <input type='number' required id='publishedOn' defaultValue={publishedOn} />
-            <br />
-            <input type='submit' value='Edit Book' />
-        </form>
+            <form onSubmit={handleSubmit} className='border p-3 m-3 w-50'>
+                <h3 className='mx-3 p-3 text-center'>Edit book</h3>
+                <label htmlFor='title'>Book Title:</label>
+                <input type='text' placeholder='title' className='p-2 form-control' required id='title' defaultValue={title} />
+                <br />
+                <label htmlFor='author'>Author:</label>
+                <input type='text' placeholder='Author' className='p-2 form-control' required id='author' defaultValue={author} />
+                <br />
+                <label htmlFor='subject'>Subject:</label>
+                <input type='text' placeholder='Subject' className='p-2 form-control' required id='subject' defaultValue={subject} />
+                <br />
+                <label htmlFor='publishedOn'>Published On:</label>
+                <input type='number' required id='publishedOn' className='p-2 form-control' defaultValue={publishedOn} />
+                <br />
+                <input type='submit' value='Edit Book' className='btn btn-primary w-100' />
+            </form>
+        </div>
     );
 }

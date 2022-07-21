@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function AddBook () {
+export default function AddBook() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +22,7 @@ export default function AddBook () {
     return (
         <div className='d-flex justify-content-center p-3 m-3'>
             <Link to='/admin/'>
-            <i class="bi bi-x-circle-fill"></i>
+                <i class="bi bi-x-circle-fill"></i>
             </Link>
             <form onSubmit={handleSubmit}>
                 <h3 className='m-3 p-3 text-center'>Add new book</h3>
