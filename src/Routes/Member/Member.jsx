@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Home from './Home';
 import Login from './MemberLogin';
 import MyAccount from './MyAccount';
 import Books from './Books';
@@ -35,13 +34,13 @@ export default function Member() {
 
                 <div className='d-flex justify-content-center align-content-center border bg-light'>
                     <div className='w-25 p-3 sidebar text-center'>
-                        <img src='https://source.unsplash.com/random' className='logo' alt='profile picture' />
+                        <img src='https://source.unsplash.com/random' className='logo' alt='profile' />
                         <h3 className='text-center p-3'>Hello, Member</h3>
 
-                        <nav className='border'>
+                        <nav>
                             <ul className='list-unstyled'>
                                 <li onClick={() => setCurrentTab('books')} className='btn w-100 border p-3 m-0'>Books</li>
-                                <li onClick={() => setCurrentTab('myaccount')} className='btn w-100 m-0 p-3'>My account</li>
+                                <li onClick={() => setCurrentTab('myaccount')} className='btn w-100 border m-0 p-3'>My account</li>
                             </ul>
                         </nav>
                     </div>

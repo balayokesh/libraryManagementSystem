@@ -51,9 +51,9 @@ export default function Books () {
                             <summary title='menu'>...</summary>
                             <div className='border'>
                                     <Link to='/admin/editbook' state={{ title: data.title, author: data.author, subject: data.subject, publishedOn: data.publishedOn }}>
-                                    <i class='bi bi-arrow-clockwise border' title='Renew'></i>
+                                    <i className='bi bi-arrow-clockwise border' title='Renew'></i>
                                     </Link>
-                                    <i class='bi bi-file-minus border' title='Remove/Return the book'></i>
+                                    <i className='bi bi-file-minus border' title='Remove/Return the book'></i>
                             </div>
                         </details>
                     </div>

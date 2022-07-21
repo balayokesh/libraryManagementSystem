@@ -26,21 +26,23 @@ export default function MyAccount() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>Edit Account Details</h1>
-            <label htmlFor='title'>Member email:</label>
-            <input type='text' placeholder='Email' required id='email' defaultValue={memberData.email} />
-            <br />
-            <label htmlFor='name'>Name:</label>
-            <input type='text' placeholder='Name' required id='name' defaultValue={memberData.name} />
-            <br />
-            <label htmlFor='password'>Password:</label>
-            <input type='text' placeholder='Password' required id='password' defaultValue={memberData.password} />
-            <br />
-            <label htmlFor='education'>Education:</label>
-            <input type='text' required id='education' defaultValue={memberData.education} />
-            <br />
-            <input type='submit' value='save changes' />
-        </form>
+        <div className='d-flex justify-content-center p-3'>
+            <form onSubmit={handleSubmit} className='border rounded p-3'>
+                <h3 className='mx-3 p-3 text-center'>Edit Account Details</h3>
+                <label htmlFor='email'>Member email:</label>
+                <input type='text' placeholder='Email' required id='email' defaultValue={memberData.email} className='p-2 form-control' />
+                <br />
+                <label htmlFor='name'>Name:</label>
+                <input type='text' placeholder='Name' required id='name' defaultValue={memberData.name} className='p-2 form-control' />
+                <br />
+                <label htmlFor='password'>Password:</label>
+                <input type='text' placeholder='Password' required id='password' defaultValue={memberData.password} className='p-2 form-control' />
+                <br />
+                <label htmlFor='education'>Education:</label>
+                <input type='text' required id='education' defaultValue={memberData.education} className='p-2 form-control' />
+                <br />
+                <input type='submit' value='save changes' className='btn btn-primary w-100' />
+            </form>
+        </div>
     );
 }
