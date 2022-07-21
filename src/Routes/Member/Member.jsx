@@ -35,7 +35,7 @@ export default function Member() {
 
                 <div className='d-flex justify-content-center align-content-center border bg-light'>
                     <div className='w-25 p-3 sidebar text-center'>
-                        <img src='https://source.unsplash.com/random' className='logo' />
+                        <img src='https://source.unsplash.com/random' className='logo' alt='profile picture' />
                         <h3 className='text-center p-3'>Hello, Member</h3>
 
                         <nav className='border'>
