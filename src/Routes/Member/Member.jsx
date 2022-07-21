@@ -38,11 +38,10 @@ export default function Member() {
                         <img src='https://source.unsplash.com/random' className='logo' />
                         <h3 className='text-center p-3'>Hello, Member</h3>
 
-                        <nav className='border p-3'>
+                        <nav className='border'>
                             <ul className='list-unstyled'>
-                                <li onClick={() => setCurrentTab('books')}>Books</li>
-                                <hr />
-                                <li onClick={() => setCurrentTab('myaccount')}>My account</li>
+                                <li onClick={() => setCurrentTab('books')} className='btn w-100 border p-3 m-0'>Books</li>
+                                <li onClick={() => setCurrentTab('myaccount')} className='btn w-100 m-0 p-3'>My account</li>
                             </ul>
                         </nav>
                     </div>
