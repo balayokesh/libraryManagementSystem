@@ -65,32 +65,45 @@ export default function MemberCheckOut() {
     }
 
     return (
-        <div>
-            <Link to='/member'>
-                <i className='bi bi-arrow-left-circle-fill'></i>
-            </Link>
-            <h2>Checkout new Books</h2>
-            <div>
-                <input type='text' placeholder='search' id='query' onKeyUp={handleSearch} />
-                <select id='filter' onChange={handleSearch}>
-                    <option value='title'>Title</option>
-                    <option value='author'>Author</option>
-                    <option value='publishedOn'>Published year</option>
-                </select>
-                <button onClick={handleSearch}>Search</button>
-                <div>
-                    {
-                        resultData.map((data) => (
-                            <div key={data.id}>
-                                <big>{data.title}</big> - <small>{data.author}</small>
-                                <p>{data.subject}</p>
-                                Published on: <small>{data.publishedOn}</small>
-                                <i class='bi bi-cart-plus border' title='checkout'></i>
-                                <i class='bi bi-journal-check border' title='reserve'></i>
-                                <hr />
-                            </div>
-                        ))
-                    }
+        <div className='d-flex justify-content-center'>
+            <div className='w-50'>
+                <Link to='/member'>
+                    <i className='bi bi-arrow-left-circle-fill logo'></i>
+                </Link>
+                <h3 className='text-center m-3'>Checkout new Books</h3>
+                <div className='border rounded p-3 text-center search-gradient'>
+                    <input type='text' placeholder='search' id='query' onKeyUp={handleSearch} className='form-control w-50 d-inline' />
+                    <select id='filter' onChange={handleSearch} className='form-control form-select w-25 d-inline'>
+                        <option value='title'>Title</option>
+                        <option value='author'>Author</option>
+                        <option value='publishedOn'>Published year</option>
+                    </select>
+                    <button onClick={handleSearch} className='btn btn-success d-inline'>Search</button>
+                    <div className='p-3 text-left'>
+                        {
+                            (resultData.length === 0)
+                                ?
+                                <p className='text-center'>Search results appear here</p>
+                                :
+                                resultData.map((data) => (
+                                    <div key={data.id} className='card m-1'>
+                                        <div className='card-body'>
+                                            <big>{data.title}</big> - <small>{data.author}</small>
+                                            <br />
+                                            <span className='bg-primary text-white border rounded px-1'>{data.subject}</span>
+                                            &nbsp;
+                                            Published on:<small>{data.publishedOn}</small>
+
+                                            <button className='btn btn-outline-success mx-1'>
+                                                <i className='bi bi-bag-check' title='checkout'></i>
+                                                &nbsp;
+                                                Checkout
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))
+                        }
+                    </div>
                 </div>
             </div>
         </div>

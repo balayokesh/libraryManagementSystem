@@ -23,9 +23,9 @@ export default function EditBook() {
     }
 
     return (
-        <div className='d-flex justify-content-center p-3 m-3'>
+        <div className='d-flex justify-content-center p-3 m-3 root'>
             <Link to='/admin'>
-                <i class="bi bi-x-circle-fill"></i>
+                <i className='bi bi-x-circle-fill close' title='close'></i>
             </Link>
             <form onSubmit={handleSubmit} className='border p-3 m-3 w-50'>
                 <h3 className='mx-3 p-3 text-center'>Edit book</h3>

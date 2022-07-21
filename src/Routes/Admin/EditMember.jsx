@@ -23,24 +23,26 @@ export default function EditBook () {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div className='d-flex justify-content-center p-3 m-3'>
+        <form onSubmit={handleSubmit} className='border p-3 m-3 w-50' >
             <Link to='/admin'>
-                <i className='bi bi-arrow-left-circle-fill'></i>
+                <i class="bi bi-x-circle-fill"></i>
             </Link>
-            <h1>Edit Member</h1>
+            <h3 className='mx-3 p-3 text-center'>Edit Member</h3>
             <label htmlFor='title'>Member email:</label>
-            <input type='text' placeholder='Email' required id='email' defaultValue={email} />
+            <input type='text' placeholder='Email' className='p-2 form-control' required id='email' defaultValue={email} />
             <br />
             <label htmlFor='name'>Name:</label>
-            <input type='text' placeholder='Name' required id='name' defaultValue={name} />
+            <input type='text' placeholder='Name' className='p-2 form-control' required id='name' defaultValue={name} />
             <br />
             <label htmlFor='password'>Password:</label>
-            <input type='text' placeholder='Password' required id='password' defaultValue={password} />
+            <input type='text' placeholder='Password' className='p-2 form-control' required id='password' defaultValue={password} />
             <br />
             <label htmlFor='education'>Education:</label>
-            <input type='text' required id='education' defaultValue={education} />
+            <input type='text' className='p-2 form-control' required id='education' defaultValue={education} />
             <br />
-            <input type='submit' value='Edit Book' />
+            <input type='submit' value='Edit Book' className='btn btn-primary w-100' />
         </form>
+        </div>
     );
 }

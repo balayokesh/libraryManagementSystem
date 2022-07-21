@@ -15,6 +15,10 @@ body {
 	height: 80px;
 	border-radius: 50%;
 }
+.close {
+	width: 30px;
+	height: 30px;
+}
 .cardhover:hover {
 	background: linear-gradient(black, rgb(43, 40, 40));
 	font-weight: bolder;
@@ -29,5 +33,5 @@ details > summary {
 	text-align: left;
 }
 .search-gradient {
-	background: linear-gradient(90deg, rgb(152, 205, 223), rgb(167, 167, 224));
+	background: rgb(152, 205, 223);
 }
