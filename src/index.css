@@ -10,6 +10,9 @@ body {
 .root {
 	height: 100vh;
 }
+.bg-grey {
+	background:rgb(194, 188, 188);
+}
 .logo {
 	width: 80px;
 	height: 80px;
@@ -20,7 +23,7 @@ body {
 	height: 30px;
 }
 .cardhover:hover {
-	background: linear-gradient(black, rgb(43, 40, 40));
+	border: 1px solid black;
 	font-weight: bolder;
 }
 
@@ -34,4 +37,7 @@ details > summary {
 }
 .search-gradient {
 	background: rgb(152, 205, 223);
+}
+.display-7 {
+	font-size: 1.2em;
 }
