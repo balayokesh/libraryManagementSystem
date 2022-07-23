@@ -47,7 +47,9 @@ export default function App() {
 			<div className='jumbotron jumbotron-fluid p-3 text-center bg-grey'>
 				<div className='jumbotron m-3 p-3'>
 				<p  className='display-7 p-3 m-3'>Login or SignUp as a member to continue using this site.</p>
+				<Link to='/signup'>
 				<button className='btn btn-outline-dark btn-lg w-25'>Sign Up</button>
+				</Link>
 				</div>
 			</div>
 
