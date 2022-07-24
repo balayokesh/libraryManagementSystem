@@ -24,8 +24,7 @@ export default function App() {
 			</div>
 
 			<div className='container rounded my-3 border-violet bg-violet'>
-				<br />
-				<h3 className='my-3 text-center'>Features ✔</h3>
+				<h3 className='mt-3 text-center text-white'>Features ✔</h3>
 				<div className='flex-column d-flex justify-content-center align-items-center text-center'>
 					<div className='border rounded center m-3 p-3 w-75 bg-grey cardhover lead'>
 						Login to claim your membership

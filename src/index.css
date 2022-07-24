@@ -21,14 +21,14 @@ body {
 	height: 30px;
 }
 .cardhover:hover {
-	border: 5px solid black;
 	font-weight: bolder;
+	color: darkblue;
 }
 .bg-grey {
 	background:rgb(194, 188, 188);
 }
 .bg-violet {
-	background: rgba(100, 112, 226, 0.801);
+	background: rgba(143, 151, 224, 0.801);
 }
 .border-violet {
 	border: 3px solid rgb(112, 15, 202);
