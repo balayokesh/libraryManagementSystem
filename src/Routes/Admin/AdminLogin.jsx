@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function AdminLogin (props) {
 
@@ -11,8 +12,18 @@ export default function AdminLogin (props) {
             email :email,
             password: password
         }
-        console.log(data);
-        props.setIsLoggedIn(1);
+        axios.get('http://localhost:8080/api/v1/librarian/')
+            .then(res => {
+                if (res.data[0].name === data.email && res.data[0].password === data.password) {
+                    props.setIsLoggedIn(1);
+                }
+                else {
+                    alert("Credentials doesn't match 😟");
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     return (
@@ -33,7 +44,7 @@ export default function AdminLogin (props) {
             <div className='d-flex justify-content-center p-3 m-3'>
                 <form onSubmit={handleSubmit} className='border rounded p-3'>
                     <h3 className='m-3 p-3 text-center'>Admin Login</h3>
-                    <input type='email' placeholder='Email' id='email' className='p-2 form-control' required autoFocus />
+                    <input type='text' placeholder='Email' id='email' className='p-2 form-control' required autoFocus />
                     <br />
                     <input type='password' placeholder='Password' id='password' className='p-2 form-control' required/>
                     <br />

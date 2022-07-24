@@ -7,7 +7,7 @@ import MembersAdmin from './MembersAdmin';
 
 export default function Admin() {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(1);
+    const [isLoggedIn, setIsLoggedIn] = useState(0);
     const [currentTab, setCurrentTab] = useState('books');
 
     if (isLoggedIn === 0) {
