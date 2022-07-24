@@ -10,21 +10,31 @@ body {
 .root {
 	height: 100vh;
 }
-.bg-grey {
-	background:rgb(194, 188, 188);
-}
 .logo {
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
+	border: 1px solid white;
 }
 .close {
 	width: 30px;
 	height: 30px;
 }
 .cardhover:hover {
-	border: 1px solid black;
+	border: 5px solid black;
 	font-weight: bolder;
+}
+.bg-grey {
+	background:rgb(194, 188, 188);
+}
+.bg-violet {
+	background: rgba(100, 112, 226, 0.801);
+}
+.border-violet {
+	border: 3px solid rgb(112, 15, 202);
+}
+.bg-violet-img {
+	background: url('./Assets/bgviolet.webp') no-repeat center fixed;
 }
 
 details > summary {
@@ -37,7 +47,4 @@ details > summary {
 }
 .search-gradient {
 	background: rgb(152, 205, 223);
-}
-.display-7 {
-	font-size: 1.2em;
 }
