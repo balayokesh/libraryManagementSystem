@@ -3,8 +3,6 @@ import axios from 'axios';
 
 export default function AdminLogin(props) {
 
-    
-
     const handleSubmit = (e) => {
         e.preventDefault();
         document.getElementById('loader').style.display = 'inline';
@@ -21,12 +19,13 @@ export default function AdminLogin(props) {
                     props.setIsLoggedIn(1);
                 }
                 else {
-                    alert("Credentials doesn't match 😟");
                     document.getElementById('loader').style.display = 'none';
+                    alert("Credentials doesn't match 😟");
                 }
             })
             .catch(err => {
                 document.getElementById('loader').style.display = 'none';
+                alert("Error occured");
                 console.log(err);
             })
     }

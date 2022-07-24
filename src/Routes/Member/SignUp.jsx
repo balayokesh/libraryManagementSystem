@@ -16,13 +16,14 @@ export default function SignUp() {
         }
         axios.post('http://localhost:8080/api/v1/members', data)
             .then(res => {
+                document.getElementById('loader').style.display = 'none';
                 alert('User created');
                 console.log(data);
                 console.log(res.data);
-                document.getElementById('loader').style.display = 'none';
             })
             .catch(err => {
                 document.getElementById('loader').style.display = 'none';
+                alert('Some error occured');
                 console.log(err);
             })
     }
