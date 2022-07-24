@@ -22,9 +22,11 @@ export default function AdminLogin(props) {
                 }
                 else {
                     alert("Credentials doesn't match 😟");
+                    document.getElementById('loader').style.display = 'none';
                 }
             })
             .catch(err => {
+                document.getElementById('loader').style.display = 'none';
                 console.log(err);
             })
     }

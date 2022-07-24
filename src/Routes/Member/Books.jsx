@@ -63,7 +63,7 @@ export default function Books() {
                                 <td>{data.subject}</td>
                                 <td>{data.publishedOn}</td>
                                 <td>
-                                    <Link to='/admin/editbook' state={{ title: data.title, author: data.author, subject: data.subject, publishedOn: data.publishedOn }}>
+                                    <Link to='/member/checkout' state={{ title: data.title, author: data.author, subject: data.subject, publishedOn: data.publishedOn }}>
                                         <button className='btn btn-outline-primary mx-1'>
                                             <i className='bi bi-arrow-clockwise' title='Renew'></i>
                                         </button>
