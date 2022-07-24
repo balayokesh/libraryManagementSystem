@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import axios from 'axios';
+
 export default function SignUp() {
 
     const handleSubmit = (e) => {
@@ -8,10 +10,18 @@ export default function SignUp() {
         let password = document.getElementById('password').value;
 
         let data = {
-            email: email,
+            name: email,
             password: password
         }
-        console.log(data);
+        axios.post('http://localhost:8080/api/v1/members', data)
+            .then(res => {
+                alert('User created');
+                console.log(data);
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })  
     }
 
     return (
@@ -32,7 +42,7 @@ export default function SignUp() {
             <div className='d-flex justify-content-center p-3 m-3'>
                 <form onSubmit={handleSubmit} className='border rounded p-3' >
                     <h3 className='m-3 p-3 text-center'>Sign Up</h3>
-                    <input type='email' placeholder='Email' id='email' className='p-2 form-control' required autoFocus />
+                    <input type='text' placeholder='Email' id='email' className='p-2 form-control' required autoFocus />
                     <br />
                     <input type='password' placeholder='Password' id='password' className='p-2 form-control' required />
                     <br />
