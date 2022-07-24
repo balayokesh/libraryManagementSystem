@@ -7,7 +7,7 @@ import Books from './Books';
 
 export default function Member() {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(1);
+    const [isLoggedIn, setIsLoggedIn] = useState(0);
     const [currentTab, setCurrentTab] = useState('home');
 
     if (isLoggedIn === 0) {
