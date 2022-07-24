@@ -6,6 +6,7 @@ export default function SignUp() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        document.getElementById('loader').style.display = 'inline';
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
 
@@ -15,13 +16,16 @@ export default function SignUp() {
         }
         axios.post('http://localhost:8080/api/v1/members', data)
             .then(res => {
+                document.getElementById('loader').style.display = 'none';
                 alert('User created');
                 console.log(data);
                 console.log(res.data);
             })
             .catch(err => {
+                document.getElementById('loader').style.display = 'none';
+                alert('Some error occured');
                 console.log(err);
-            })  
+            })
     }
 
     return (
@@ -46,7 +50,13 @@ export default function SignUp() {
                     <br />
                     <input type='password' placeholder='Password' id='password' className='p-2 form-control' required />
                     <br />
-                    <input type='submit' value='Sign Up' className='btn btn-primary w-100' />
+                    <button className='btn btn-primary w-100'>
+                        Signup
+                        <span id='loader' style={{ display: 'none' }}>
+                            &nbsp;
+                            <span className='spinner-border spinner-border-sm'></span>
+                        </span>
+                    </button>
                     <br />
                     Already have an account? <Link to='/member'>Login</Link>
                 </form>
