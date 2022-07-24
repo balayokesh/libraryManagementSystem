@@ -21,10 +21,13 @@ export default function AdminLogin(props) {
                     props.setIsLoggedIn(1);
                 }
                 else {
+                    document.getElementById('loader').style.display = 'none';
                     alert("Credentials doesn't match 😟");
                 }
             })
             .catch(err => {
+                document.getElementById('loader').style.display = 'none';
+                alert("Error occured");
                 console.log(err);
             })
     }
