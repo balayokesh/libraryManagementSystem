@@ -1,40 +1,20 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import axios from 'axios';
+
 export default function BookAdmin() {
 
     const [resultData, setResultData] = useState([]);
+    const [bookData, setBookData] = useState([]);
 
-    let bookData = [
-        {
-            id: 1,
-            title: 'Oliver Twist',
-            author: 'Charles Dickens',
-            subject: 'English Literature',
-            publishedOn: 1837
-        },
-        {
-            id: 2,
-            title: 'Introduction to Programming in Java',
-            author: 'Dr. Tareja',
-            subject: 'Computer programming',
-            publishedOn: 1835
-        },
-        {
-            id: 3,
-            title: 'Early India',
-            author: 'Mr. John Doe',
-            subject: 'History',
-            publishedOn: 1827
-        },
-        {
-            id: 4,
-            title: 'Economic conditions in India',
-            author: 'Paul Samuelson',
-            subject: 'Economics',
-            publishedOn: 1857
-        }
-    ];
+    axios.get('http://localhost:8080/api/v1/books')
+        .then(res => {
+            setBookData(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
 
     const handleSearch = () => {
         let filter = document.getElementById('filter').value;
