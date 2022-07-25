@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function EditBook() {
 
     const location = useLocation();
-    const { id, title, author, subject, publishedOn } = location.state;
+    const { id, title, author, subject, publishedon } = location.state;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,13 +13,13 @@ export default function EditBook() {
         let title = document.getElementById('title').value;
         let author = document.getElementById('author').value;
         let subject = document.getElementById('subject').value;
-        let publishedOn = document.getElementById('publishedOn').value;
+        let publishedon = document.getElementById('publishedon').value;
 
         let data = {
             title: title,
             author: author,
             subject: subject,
-            publishedon: publishedOn
+            publishedon: publishedon
         }
         axios.put(`http://localhost:8080/api/v1/books/${id}`, data)
             .then(res => {
@@ -51,8 +51,8 @@ export default function EditBook() {
                 <label htmlFor='subject'>Subject:</label>
                 <input type='text' placeholder='Subject' className='p-2 form-control' required id='subject' defaultValue={subject} />
                 <br />
-                <label htmlFor='publishedOn'>Published On:</label>
-                <input type='number' required id='publishedOn' className='p-2 form-control' defaultValue={publishedOn} />
+                <label htmlFor='publishedon'>Published On:</label>
+                <input type='number' required id='publishedon' className='p-2 form-control' defaultValue={publishedon} />
                 <br />
                 <button className='btn btn-primary w-100'>
                     Edit Book

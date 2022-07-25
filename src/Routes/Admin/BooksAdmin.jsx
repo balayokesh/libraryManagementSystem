@@ -34,9 +34,9 @@ export default function BookAdmin() {
                 }
             }
         }
-        else if (filter === 'publishedOn') {
+        else if (filter === 'publishedon') {
             for (let i = 0; i < bookData.length; i++) {
-                if (bookData[i].publishedOn === search) {
+                if (bookData[i].publishedon === search) {
                     array.push(bookData[i]);
                 }
             }
@@ -80,7 +80,7 @@ export default function BookAdmin() {
                     <select id='filter' onChange={handleSearch} className='form-control form-select w-25 d-inline'>
                         <option value='title'>Title</option>
                         <option value='author'>Author</option>
-                        <option value='publishedOn'>Published year</option>
+                        <option value='publishedon'>Published year</option>
                     </select>
                     <button onClick={handleSearch} className='btn btn-success d-inline'>Search</button>
                     <div className='p-3 text-left'>
@@ -96,9 +96,9 @@ export default function BookAdmin() {
                                             <br />
                                             <span className='bg-primary text-white border rounded px-1'>{data.subject}</span>
                                             &nbsp;
-                                            Published on:<small>{data.publishedOn}</small>
+                                            Published on:<small>{data.publishedon}</small>
 
-                                            <Link to='/admin/editbook' className='mx-1' state={{ title: data.title, author: data.author, subject: data.subject, publishedOn: data.publishedOn }}>
+                                            <Link to='/admin/editbook' className='mx-1' state={{ title: data.title, author: data.author, subject: data.subject, publishedon: data.publishedon }}>
                                                 <button className='btn btn-outline-primary'>
                                                     <i className="bi bi-pencil-fill" title='Edit'>Edit</i>
                                                 </button>
@@ -140,7 +140,7 @@ export default function BookAdmin() {
                                 <td>{data.subject}</td>
                                 <td>{data.publishedon}</td>
                                 <td>
-                                    <Link to='/admin/editbook' state={{ id: data.id, title: data.title, author: data.author, subject: data.subject, publishedOn: data.publishedOn }}>
+                                    <Link to='/admin/editbook' state={{ id: data.id, title: data.title, author: data.author, subject: data.subject, publishedon: data.publishedon }}>
                                         <button className='btn btn-outline-primary mx-1'>
                                             <i className="bi bi-pencil-fill" title='Edit'>Edit</i>
                                         </button>
