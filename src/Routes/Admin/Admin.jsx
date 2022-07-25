@@ -44,7 +44,6 @@ export default function Admin() {
                         {currentTab === 'books' ? <BooksAdmin /> : <MembersAdmin />}
                     </div>
                 </div>
-                
             </div>
         )
     }

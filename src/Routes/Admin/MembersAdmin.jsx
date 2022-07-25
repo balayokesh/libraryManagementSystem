@@ -122,7 +122,7 @@ export default function MembersAdmin() {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Education</th>
-                        <th>Published year</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>

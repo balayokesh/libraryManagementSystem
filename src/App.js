@@ -26,16 +26,16 @@ export default function App() {
 			<div className='container rounded my-3 border-violet bg-violet'>
 				<h3 className='mt-3 text-center text-white'>Features ✔</h3>
 				<div className='flex-column d-flex justify-content-center align-items-center text-center'>
-					<div className='border rounded center m-3 p-3 w-75 bg-grey cardhover lead'>
+					<div className='border rounded center m-3 p-3 w-75 bg-logo text-white cardhover lead'>
 						Login to claim your membership
 					</div>
-					<div className='border rounded center m-3 p-3 w-75 bg-grey cardhover lead'>
+					<div className='border rounded center m-3 p-3 w-75 bg-logo text-white cardhover lead'>
 						Option to reserve a book when it goes out of stock
 					</div>
-					<div className='border rounded center m-3 p-3 w-75 bg-grey cardhover lead'>
+					<div className='border rounded center m-3 p-3 w-75 bg-logo text-white cardhover lead'>
 						Book due email reminders to remind you with deadlines for returning the book
 					</div>
-					<div className='border rounded center m-3 p-3 w-75 bg-grey cardhover lead'>
+					<div className='border rounded center m-3 p-3 w-75 bg-logo text-white cardhover lead'>
 						Easy to use User interface, book management page available on web
 					</div>
 				</div>
