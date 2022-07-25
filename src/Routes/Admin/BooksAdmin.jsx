@@ -36,7 +36,7 @@ export default function BookAdmin() {
         }
         else if (filter === 'publishedon') {
             for (let i = 0; i < bookData.length; i++) {
-                if (bookData[i].publishedon === search) {
+                if (bookData[i].publishedon == search) {
                     array.push(bookData[i]);
                 }
             }
@@ -98,14 +98,14 @@ export default function BookAdmin() {
                                             &nbsp;
                                             Published on:<small>{data.publishedon}</small>
 
-                                            <Link to='/admin/editbook' className='mx-1' state={{ title: data.title, author: data.author, subject: data.subject, publishedon: data.publishedon }}>
+                                            <Link to='/admin/editbook' className='mx-1' state={{ id: data.id, title: data.title, author: data.author, subject: data.subject, publishedon: data.publishedon }}>
                                                 <button className='btn btn-outline-primary'>
                                                     <i className="bi bi-pencil-fill" title='Edit'>Edit</i>
                                                 </button>
                                             </Link>
 
                                             <button className='btn btn-outline-danger mx-1'>
-                                                <i className="bi bi-trash-fill" title='Delete'>Delete</i>
+                                                <i className="bi bi-trash-fill" title='Delete' onClick={() => handleDelete(data.id)}>Delete</i>
                                             </button>
                                         </div>
                                     </div>
