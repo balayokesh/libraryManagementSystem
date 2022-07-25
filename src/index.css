@@ -36,6 +36,9 @@ body {
 .bg-violet-img {
 	background: url('./Assets/bgviolet.webp') no-repeat center fixed;
 }
+.bg-logo {
+	background: rgb(1, 25, 33);
+}
 
 details > summary {
 	list-style: none;
