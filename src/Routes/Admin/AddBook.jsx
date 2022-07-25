@@ -24,6 +24,7 @@ export default function AddBook() {
                 document.getElementById('loader').style.display = 'none';
                 console.log(res.data);
                 alert(`${res.data.title} added successfully`);
+                window.location = '/admin';
             })
             .catch(err => {
                 document.getElementById('loader').style.display = 'none';
