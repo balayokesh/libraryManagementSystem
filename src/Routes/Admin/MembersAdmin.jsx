@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function MembersAdmin() {
 
+    const [memberData, setMemberData] = useState([]);
     const [resultData, setResultData] = useState([]);
 
-    let memberData = [
+    let memberDataDuplicate = [
         {
             id: 1,
             email: 'ajay@example.com',
@@ -36,6 +38,22 @@ export default function MembersAdmin() {
         }
     ];
 
+    useEffect(() => {
+        refreshMemberData();
+    }, [])
+
+    const refreshMemberData = () => {
+        axios.get('http://localhost:8080/api/v1/members')
+        .then(res => {
+            console.log(res);
+            setMemberData(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+    
+
     const handleSearch = () => {
         let filter = document.getElementById('filter').value;
         let search = document.getElementById('query').value;
@@ -62,6 +80,22 @@ export default function MembersAdmin() {
             }
         }
         setResultData(array);
+    }
+
+    const handleDelete = (id) => {
+        document.getElementById('loader').style.display = 'inline';
+        axios.delete(`http://localhost:8080/api/v1/members/${id}`)
+            .then(res => {
+                document.getElementById('loader').style.display = 'none';
+                alert('Member data deleted successfully');
+                console.log(res.data);
+                refreshMemberData();
+            })
+            .catch(err => {
+                document.getElementById('loader').style.display = 'none';
+                alert('Deletion failed');
+                console.log(err);
+            })
     }
 
     return (
@@ -122,7 +156,13 @@ export default function MembersAdmin() {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Education</th>
-                        <th>Actions</th>
+                        <th>
+                            Actions
+                            <span id='loader' style={{ display: 'none' }}>
+                                &nbsp;
+                                <span className='spinner-border spinner-border-sm'></span>
+                            </span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -139,7 +179,7 @@ export default function MembersAdmin() {
                                         </button>
                                     </Link>
                                     <button className='btn btn-outline-danger mx-1'>
-                                        <i className="bi bi-trash-fill" title='Delete'>Delete</i>
+                                        <i className="bi bi-trash-fill" title='Delete' onClick={() => handleDelete(data.id)}>Delete</i>
                                     </button>
                                 </td>
                             </tr>
