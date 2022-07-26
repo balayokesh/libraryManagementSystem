@@ -173,7 +173,7 @@ export default function MembersAdmin() {
                                 <td>{data.email}</td>
                                 <td>{data.education}</td>
                                 <td>
-                                    <Link to='/admin/editmember' state={{ email: data.email, name: data.name, password: data.password, education: data.education }}>
+                                    <Link to='/admin/editmember' state={{ id: data.id, email: data.email, name: data.name, password: data.password, education: data.education }}>
                                         <button className='btn btn-outline-primary mx-1'>
                                             <i className="bi bi-pencil-fill" title='Edit'>Edit</i>
                                         </button>
