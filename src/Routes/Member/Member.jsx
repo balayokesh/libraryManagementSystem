@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 import Login from './MemberLogin';
 import MyAccount from './MyAccount';
@@ -9,6 +10,18 @@ export default function Member() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(0);
     const [currentTab, setCurrentTab] = useState('home');
+
+    useEffect(() => {
+        if (Cookies.get('uid') !== undefined) {
+            setIsLoggedIn(1);
+        }
+    }, []);
+
+    const logout = () => {
+        Cookies.remove('uid');
+        Cookies.remove('uname');
+        setIsLoggedIn(0);
+    }
 
     if (isLoggedIn === 0) {
         return (
@@ -27,7 +40,7 @@ export default function Member() {
                     </div>
                     <div className='align-self-center'>
                         {
-                            isLoggedIn === 0 ? <Link to='/member' className='border btn mx-2 p-3 text-white'>Login</Link> : <button className='border btn mx-2 p-3 text-white' onClick={() => setIsLoggedIn(0)}>Logout</button>
+                            isLoggedIn === 0 ? <Link to='/member' className='border btn mx-2 p-3 text-white'>Login</Link> : <button className='border btn mx-2 p-3 text-white' onClick={logout}>Logout</button>
                         }
                     </div>
                 </div>
