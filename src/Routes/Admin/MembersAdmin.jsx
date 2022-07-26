@@ -133,13 +133,13 @@ export default function MembersAdmin() {
                                             <big>{data.name}</big> <span className='bg-primary text-white border rounded px-1'>{data.education}</span>
                                             <p>{data.email}</p>
 
-                                            <Link to='/admin/editmember' className='mx-1' state={{ email: data.email, name: data.name, password: data.password, education: data.education }}>
+                                            <Link to='/admin/editmember' className='mx-1' state={{ id: data.id, email: data.email, name: data.name, password: data.password, education: data.education }}>
                                                 <button className='btn btn-outline-primary'>
                                                     <i className="bi bi-pencil-fill" title='Edit'>Edit</i>
                                                 </button>
                                             </Link>
                                             <button className='btn btn-outline-danger mx-1'>
-                                                <i className="bi bi-trash-fill" title='Delete'>Delete</i>
+                                                <i className="bi bi-trash-fill" title='Delete' onClick={() => handleDelete(data.id)}>Delete</i>
                                             </button>
                                         </div>
                                     </div>
