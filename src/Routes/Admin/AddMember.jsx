@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function AddBook() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        document.getElementById('loader').style.display = 'inline';
         let email = document.getElementById('email').value;
         let name = document.getElementById('name').value;
         let password = document.getElementById('password').value;
@@ -15,8 +17,18 @@ export default function AddBook() {
             password: password,
             education: education
         }
-        console.log(data);
-        alert('Member added');
+        axios.post('http://localhost:8080/api/v1/members', data)
+            .then(res => {
+                document.getElementById('loader').style.display = 'none';
+                console.log(res.data);
+                alert(`${res.data.name} added successfully`);
+                window.location = '/admin';
+            })
+            .catch(err => {
+                document.getElementById('loader').style.display = 'none';
+                alert('Some error has been occured');
+                console.log(err);
+            })
     }
 
     return (
@@ -38,7 +50,13 @@ export default function AddBook() {
                 <label htmlFor='education'>Member education:</label>
                 <input type='text' placeholder='education' className='p-2 form-control' required id='education' />
                 <br />
-                <input type='submit' className='btn btn-primary w-100' value='Add Member' />
+                <button className='btn btn-primary w-100'>
+                    Add member
+                    <span id='loader' style={{ display: 'none' }}>
+                        &nbsp;
+                        <span className='spinner-border spinner-border-sm'></span>
+                    </span>
+                </button>
             </form>
         </div>
     );
