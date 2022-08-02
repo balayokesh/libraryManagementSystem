@@ -15,21 +15,19 @@ import EditMember from './Routes/Admin/EditMember';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<Routes>
-				<Route exact path='/' element={<App />} />
-				
-				<Route exact path='/member' element={<Member />} />
-				<Route exact path='/signup' element={<SignUp />} />
-				<Route exact path='/member/checkout' element={<MemberCheckOut />} />
+	<BrowserRouter>
+		<Routes>
+			<Route exact path='/' element={<App />} />
 
-				<Route exact path='/admin' element={<Admin />} />
-				<Route exact path='/admin/addbook' element={<AddBook />} />
-				<Route exact path='/admin/addmember' element={<AddMember />} />
-				<Route exact path='/admin/editbook' element={<EditBook />} />
-				<Route exact path='/admin/editmember' element={<EditMember />} />
-			</Routes>
-		</BrowserRouter>
-	</React.StrictMode>
+			<Route exact path='/member' element={<Member />} />
+			<Route exact path='/signup' element={<SignUp />} />
+			<Route exact path='/member/checkout' element={<MemberCheckOut />} />
+
+			<Route exact path='/admin' element={<Admin />} />
+			<Route exact path='/admin/addbook' element={<AddBook />} />
+			<Route exact path='/admin/addmember' element={<AddMember />} />
+			<Route exact path='/admin/editbook' element={<EditBook />} />
+			<Route exact path='/admin/editmember' element={<EditMember />} />
+		</Routes>
+	</BrowserRouter>
 );

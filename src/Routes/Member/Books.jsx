@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -7,28 +7,34 @@ export default function Books() {
 
     const [bookData, setBookData] = useState([]);
 
+    useEffect(() => {
+        loadBooks()
+    }, []);
+    
+    let booksdata = [];
+
     const loadBooks = () => {
-    let id = Cookies.get('uid');
-    axios.get(`http://localhost:8080/api/v1/members/${id}`)
-        .then(res => {
-            let books = res.data.books.split(',');
-            console.log(books);
-            for (let i = 0; i < books.length; i++) {
-                let bookId = books[i];
-                axios.get(`http://localhost:8080/api/v1/books/${bookId}`)
-                    .then(res => {
-                        console.log(res.data);
-                        let arr = [res.data];
-                        setBookData(...bookData, arr);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        let id = Cookies.get('uid');
+        axios.get(`http://localhost:8080/api/v1/members/${id}`)
+            .then(res => {
+                let books = res.data.books.split(',');
+                // console.log(books);
+                for (let i = 0; i < books.length; i++) {
+                    let bookId = books[i];
+                    axios.get(`http://localhost:8080/api/v1/books/${bookId}`)
+                        .then(res => {
+                            booksdata.push(res.data);
+                            setBookData(booksdata);
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        })
+                }                
+                console.log("Book Data state: " + bookData);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     return (
@@ -53,7 +59,7 @@ export default function Books() {
                 </thead>
                 <tbody>
                     {
-                        (!bookData || bookData.length === 0)
+                        (bookData.length === 0)
                             ?
                             <tr>
                                 <td colSpan={5} className='text-center'>No data found</td>
