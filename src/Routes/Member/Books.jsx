@@ -29,8 +29,7 @@ export default function Books() {
                         .catch(err => {
                             console.log(err);
                         })
-                }                
-                console.log("Book Data state: " + bookData);
+                }
             })
             .catch(err => {
                 console.log(err);
