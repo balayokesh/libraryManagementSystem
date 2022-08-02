@@ -10,21 +10,24 @@ export default function Books() {
     useEffect(() => {
         loadBooks()
     }, []);
-    
+
     let booksdata = [];
 
     const loadBooks = () => {
+        document.getElementById('loader').style.display = 'inline';
         let id = Cookies.get('uid');
         axios.get(`http://localhost:8080/api/v1/members/${id}`)
             .then(res => {
                 let books = res.data.books.split(',');
                 // console.log(books);
                 for (let i = 0; i < books.length; i++) {
+                    document.getElementById('loader').style.display = 'none';
                     let bookId = books[i];
                     axios.get(`http://localhost:8080/api/v1/books/${bookId}`)
                         .then(res => {
                             booksdata.push(res.data);
                             setBookData(booksdata);
+                            document.getElementById('loader').style.display = 'none';
                         })
                         .catch(err => {
                             console.log(err);
@@ -38,7 +41,10 @@ export default function Books() {
 
     return (
         <div className='p-3'>
-            <h2 className='text-center m-3'>Your Books</h2>
+            <h2 className='text-center m-3'>
+                Your Books
+                <button className='btn btn-warning btn-sm mx-3' onClick={loadBooks}><i className='bi bi-arrow-clockwise'></i></button>
+            </h2>
             <span className='badge bg-secondary'>{bookData.length} / 5 available</span>
             <button onClick={() => window.location.href = '/member/checkout'} className='btn btn-success m-3'>
                 <i className='bi bi-plus-circle-fill' title='Checkout new book'></i>
@@ -49,7 +55,12 @@ export default function Books() {
             <table className='table table-striped table-bordered my-1'>
                 <thead>
                     <tr>
-                        <th>Book title:</th>
+                        <th>Book title:
+                            <span id='loader' style={{ display: 'none' }}>
+                                &nbsp;
+                                <span className='spinner-border spinner-border-sm'></span>
+                            </span>
+                        </th>
                         <th>Author</th>
                         <th>Subject</th>
                         <th>Published year</th>
