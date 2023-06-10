@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 import axios from 'axios';
 
@@ -19,6 +20,8 @@ export default function Login(props) {
                 console.log(res.data);
                 for (let i = 0; i < res.data.length; i++) {
                     if (res.data[i].name === data.name && res.data[i].password === data.password) {
+                        Cookies.set('uid', res.data[i].id);
+                        Cookies.set('uname', data.name);
                         props.setIsLoggedIn(1);
                         return;
                     }

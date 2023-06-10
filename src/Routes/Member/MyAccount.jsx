@@ -1,15 +1,31 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
 export default function MyAccount() {
 
-    let memberData = {
-        id: 1,
-        email: 'ajay@example.com',
-        name: 'Ajay',
-        password: '123',
-        education: 'SSLC'
-    };
+    const [memberData, setMemberData] = useState([]);
+
+    useEffect (() => {
+        refreshMemberData();
+    }, []);
+
+    const refreshMemberData = () => {
+        let id = Cookies.get('uid');
+        console.log(id);
+        axios.get(`http://localhost:8080/api/v1/members/${id}`)
+            .then(res => {
+                setMemberData(res.data);
+            })
+            .catch(err => {
+                alert('Error fetching details');
+                console.log(err);
+            })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        document.getElementById('loader').style.display = 'inline';
         let email = document.getElementById('email').value;
         let name = document.getElementById('name').value;
         let password = document.getElementById('password').value;
@@ -22,7 +38,15 @@ export default function MyAccount() {
             education: education
         }
         console.log(data);
-        alert('Changes are saved');
+        axios.put(`http://localhost:8080/api/v1/members/${Cookies.get('uid')}`, data)
+            .then(res => {
+                console.log(res);
+                document.getElementById('loader').style.display = 'none';
+            })
+            .catch(err => {
+                console.log(err);
+                document.getElementById('loader').style.display = 'none';
+            })
     }
 
     return (
@@ -41,7 +65,13 @@ export default function MyAccount() {
                 <label htmlFor='education'>Education:</label>
                 <input type='text' required id='education' defaultValue={memberData.education} className='p-2 form-control' />
                 <br />
-                <input type='submit' value='save changes' className='btn btn-primary w-100' />
+                <button className='btn btn-primary w-100'>
+                    Save changes
+                    <span id='loader' style={{ display: 'none' }}>
+                        &nbsp;
+                        <span className='spinner-border spinner-border-sm'></span>
+                    </span>
+                </button>
             </form>
         </div>
     );
